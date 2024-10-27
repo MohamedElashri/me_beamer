@@ -1,0 +1,127 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main presentation file showcasing elashri.cls features
+% Author: Mohamed Elashri
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{me_beamer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Presentation Information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{$B$ Physics Results at LHCb}
+\subtitle{Featuring Template Capabilities}
+\author{Mohamed Elashri}
+\institute{University of Cincinnati \and LHCb Collaboration}
+\date{\today}
+
+% Setup logos (files should be in figures/ directory)
+\logosetup{cincinnati-logo}{lhcb-logo}{cern-logo}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document Begin
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title Slide
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of Contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Physics Content Examples
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Decay Channels}
+
+\begin{frame}{B Decay Modes}
+    Key decay channels studied in Run~2:
+    \begin{itemize}
+        \item $B^0 \to J/\psi(\to \mu^+\mu^-) K^0$
+        \item $B^0 \to D^+(\to K^+\pi^-\pi^-)\mu^-\nu_\mu$
+        \item $B^0_s \to \psi(2S)(\to \mu^+\mu^-)\phi$
+    \end{itemize}
+    
+    Resonant structure:
+    \[
+        \Upsilon(1S) \to \mu^+\mu^- \quad (98\%)
+    \]
+    \[
+        \Upsilon(2S) \to \pi^+\pi^-\Upsilon(1S) \quad (2\%)
+    \]
+\end{frame}
+
+\section{Analysis Details}
+
+\begin{frame}{Selection Requirements}
+    Event selection criteria:
+    \begin{itemize}
+        \item Track quality: $\chi^2/\text{d.o.f.} < 3$
+        \item Momentum cuts: $p_{\text{T}} > 500\text{ MeV}$
+        \item Isolation: $\Delta R > 0.4$
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    Total integrated luminosity:
+    \[
+        \mathcal{L}_{\text{int}} = 9\text{ fb}^{-1} \quad \text{at} \quad \sqrt{s} = 13\text{ TeV}
+    \]
+\end{frame}
+
+\begin{frame}{Cross Section Results}
+    Measurement of $B^0$ production:
+    \[
+        \sigma(B^0) = (23.5 \pm 0.2_{\text{stat}} \pm 1.4_{\text{syst}} \pm 0.9_{\text{lumi}})\text{ }\mu\text{b}
+    \]
+    
+    \vspace{0.3cm}
+    Kinematic regions:
+    \begin{align*}
+        p_{\text{T}} &\in [0.5, 40]\text{ GeV} \\
+        \eta &\in [2.0, 5.0]
+    \end{align*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Code Example
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Analysis Code}
+
+\begin{frame}[fragile]{Selection Code}
+    Python implementation of the selection:
+    \begin{lstlisting}[language=Python]
+def select_B_candidates(events):
+    """Apply B meson selection criteria."""
+    mask = (events.track_chi2dof < 3.0) & \
+           (events.pt > 0.5) & \
+           (events.eta > 2.0) & \
+           (events.eta < 5.0)
+    return events[mask]
+    \end{lstlisting}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Backup Slides
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backupbegin
+
+\begin{frame}{Systematic Uncertainties}
+    Breakdown of systematic uncertainties:
+    \begin{itemize}
+        \item Tracking efficiency: $2.1\%$
+        \item PID calibration: $1.5\%$
+        \item Fit model: $1.2\%$
+        \item $\mathcal{L}_{\text{int}}$ determination: $2.0\%$
+    \end{itemize}
+\end{frame}
+
+\backupend
+
+\end{document}
