@@ -189,12 +189,32 @@
     }
 }
 
-% Backup slides commands
-\newcommand{\backupbegin}{
-    \newcounter{finalframe}
-    \setcounter{finalframe}{\value{framenumber}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Backup Slides Implementation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Counter to track if we're in backup section
+\newif\ifinbackup
+\inbackupfalse
+
+% Command to start backup slides
+\newcommand{\startbackup}{
+    \inbackuptrue
+    \appendix
+    \begin{frame}
+        \begin{center}
+            \vspace{2cm}  % Add some vertical space
+            {\fontsize{30}{36}\selectfont Backup}
+        \end{center}
+    \end{frame}
 }
 
-\newcommand{\backupend}{
-    \setcounter{framenumber}{\value{finalframe}}
+% Modify frame numbering for backup slides
+\makeatletter
+\def\insertframenumber{%
+    \ifinbackup%
+        B-\@arabic\c@framenumber%
+    \else%
+        \@arabic\c@framenumber%
+    \fi%
 }
+\makeatother

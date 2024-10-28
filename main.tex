@@ -2,6 +2,7 @@
 % Main presentation file showcasing elashri.cls features
 % Author: Mohamed Elashri
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \documentclass{me_beamer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -13,9 +14,8 @@
 \institute{University of Cincinnati \and LHCb Collaboration}
 \date{\today}
 
-% Setup logos (files should be in figures/ directory)
+% Setup logos (make sure these files exist)
 \logosetup{cincinnati-logo}{lhcb-logo}{cern-logo}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Document Begin
@@ -110,7 +110,7 @@ def select_B_candidates(events):
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Backup Slides
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\backupbegin
+\startbackup
 
 \begin{frame}{Systematic Uncertainties}
     Breakdown of systematic uncertainties:
@@ -121,7 +121,5 @@ def select_B_candidates(events):
         \item $\mathcal{L}_{\text{int}}$ determination: $2.0\%$
     \end{itemize}
 \end{frame}
-
-\backupend
 
 \end{document}
